@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+<body>
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <div class="mb-3 w-25 mx-auto">
+        <label for="nome" class="form-label" style="width: 50px">Nome</label>
+        {{ formAtleta.nome }}
+    </div>
+    <div class="mb-3 w-25 mx-auto">
+        <label for="idade" class="form-label" style="width: 50px">Idade</label>
+        {{ formAtleta.idade }}
+    </div>
+    <div class="mb-3 w-25 mx-auto">
+        <label for="altura" class="form-label" style="width: 50px">Altura</label>
+        {{ formAtleta.altura }}
+    </div>
+    <div class="mb-3 w-25 mx-auto">
+        <label for="peso" class="form-label" style="width: 50px">Peso</label>
+        {{ formAtleta.peso }}
+    </div>
+    <div class="mb-3 mx-auto" style="width: 200px">
+        <button type="submit" class="btn btn-primary mb-3">Enviar</button>
+        <a href="{% url 'deleteAtletas' %}" class="btn btn-primary"> Deletar Atletas</a>
+    </div>
+</form>
+<div class="mb-3 mx-auto" style="width: 200px">
+    <a href="{% url 'addResultado' %}" class="btn btn-primary mx-auto"> Adicionar Resultados</a>
+</div>
+
+<ul style="text-align: center" class="list-group">
+    Lista de Atletas:
+    {% for atleta in atletas %}
+        <li class="list-group-item"> {{ atleta.nome }}</li>
+    {% endfor %}
+</ul>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+</body>
+</html>
